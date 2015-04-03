@@ -7,17 +7,44 @@
 //
 
 #import "ViewController.h"
+#import "User.h"
+#import "IRNetworkManager.h"
+#import "Util.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+@synthesize usernameTextField, passwordTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+   
 }
+
+
+- (IBAction)loginBtn:(id)sender {
+    
+
+    NSString* username = usernameTextField.text;
+    NSString* password = passwordTextField.text;
+   
+    if (username != NULL && password != NULL) {
+        User *newUser = [User new];
+        [newUser setUsername:username];
+        [newUser setPassword:password];
+        
+        IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
+        
+        [sharedManager authenticateUserWith:username andPassword:password];
+    } else {
+      //  [Util showAlertWithTitle:@"Invalid credentials" andText:@"" andDelegate:self];
+        NSLog(@"null");
+    }
+    
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
