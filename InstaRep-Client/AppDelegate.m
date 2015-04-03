@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "InstagramUser.h"
 #import <RestKit/RestKit.h>
 
 
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self configureRestKit];
     return YES;
 }
 
@@ -42,6 +44,46 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)configureRestKit
+{
+    // initialize AFNetworking HTTPClient
+    NSURL *baseURL = [NSURL URLWithString:kBaseWebServiceURL];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+
+    [[RKObjectManager sharedManager] setAcceptHeaderWithMIMEType:RKMIMETypeTextXML];
+    
+    
+    
+    // initialize RestKit
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    // setup object mapping
+    RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[InstagramUser class]];
+    
+    
+    [userMapping addAttributeMappingsFromDictionary:@{@"username.text" : @"username",
+                                                          @"profilePicture.text" : @"profilepicture",
+                                                          @"full_name.text" : @"name",
+                                                          @"userid.text" : @"text"}];
+    
+    
+    // register mappings with the provider using a response descriptor
+    RKResponseDescriptor *responseDescriptor =
+    [RKResponseDescriptor responseDescriptorWithMapping:userMapping
+                                                 method:RKRequestMethodGET
+                                            pathPattern:nil
+                                                keyPath:@""
+                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    
+    
+    
+    
 }
 
 @end

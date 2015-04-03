@@ -16,8 +16,10 @@
 		DEC469B21ACC78FA002F7594 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC469B01ACC78FA002F7594 /* LaunchScreen.xib */; };
 		DEC469BE1ACC78FA002F7594 /* InstaRep_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC469BD1ACC78FA002F7594 /* InstaRep_ClientTests.m */; };
 		DEDFF2B31ACDF8450091A7B5 /* IRNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDFF2B21ACDF8450091A7B5 /* IRNetworkManager.m */; };
-		DEDFF2B71ACE006E0091A7B5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDFF2B61ACE006E0091A7B5 /* User.m */; };
+		DEDFF2B71ACE006E0091A7B5 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDFF2B61ACE006E0091A7B5 /* InstagramUser.m */; };
 		DEDFF2BA1ACE10720091A7B5 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDFF2B91ACE10720091A7B5 /* Util.m */; };
+		DEE7AF341ACEFB3D00C00C84 /* AuthenticateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */; };
+		DEE7AF381ACF096B00C00C84 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF371ACF096B00C00C84 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +51,15 @@
 		DEC469BD1ACC78FA002F7594 /* InstaRep_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaRep_ClientTests.m; sourceTree = "<group>"; };
 		DEDFF2B11ACDF8450091A7B5 /* IRNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNetworkManager.h; sourceTree = "<group>"; };
 		DEDFF2B21ACDF8450091A7B5 /* IRNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNetworkManager.m; sourceTree = "<group>"; };
-		DEDFF2B51ACE006E0091A7B5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		DEDFF2B61ACE006E0091A7B5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		DEDFF2B51ACE006E0091A7B5 /* InstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramUser.h; sourceTree = "<group>"; };
+		DEDFF2B61ACE006E0091A7B5 /* InstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUser.m; sourceTree = "<group>"; };
 		DEDFF2B81ACE10720091A7B5 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		DEDFF2B91ACE10720091A7B5 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		DEE7AF321ACEFB3D00C00C84 /* AuthenticateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticateViewController.h; sourceTree = "<group>"; };
+		DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticateViewController.m; sourceTree = "<group>"; };
+		DEE7AF351ACF005F00C00C84 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		DEE7AF361ACF096B00C00C84 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		DEE7AF371ACF096B00C00C84 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +121,14 @@
 		DEC469A01ACC78FA002F7594 /* InstaRep-Client */ = {
 			isa = PBXGroup;
 			children = (
+				DEDFF2B51ACE006E0091A7B5 /* InstagramUser.h */,
+				DEDFF2B61ACE006E0091A7B5 /* InstagramUser.m */,
+				DEDFF2B81ACE10720091A7B5 /* Util.h */,
+				DEDFF2B91ACE10720091A7B5 /* Util.m */,
+				DEE7AF351ACF005F00C00C84 /* Defines.h */,
+				DEE7AF321ACEFB3D00C00C84 /* AuthenticateViewController.h */,
+				DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */,
 				DEDFF2B41ACDF8570091A7B5 /* Networking */,
-				DEC469C71ACC7B2F002F7594 /* LoginViewController */,
 				DEC469A51ACC78FA002F7594 /* AppDelegate.h */,
 				DEC469A61ACC78FA002F7594 /* AppDelegate.m */,
 				DEC469A81ACC78FA002F7594 /* ViewController.h */,
@@ -124,10 +137,8 @@
 				DEC469AE1ACC78FA002F7594 /* Images.xcassets */,
 				DEC469B01ACC78FA002F7594 /* LaunchScreen.xib */,
 				DEC469A11ACC78FA002F7594 /* Supporting Files */,
-				DEDFF2B51ACE006E0091A7B5 /* User.h */,
-				DEDFF2B61ACE006E0091A7B5 /* User.m */,
-				DEDFF2B81ACE10720091A7B5 /* Util.h */,
-				DEDFF2B91ACE10720091A7B5 /* Util.m */,
+				DEE7AF361ACF096B00C00C84 /* DataManager.h */,
+				DEE7AF371ACF096B00C00C84 /* DataManager.m */,
 			);
 			path = "InstaRep-Client";
 			sourceTree = "<group>";
@@ -156,13 +167,6 @@
 				DEC469BC1ACC78FA002F7594 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DEC469C71ACC7B2F002F7594 /* LoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = LoginViewController;
 			sourceTree = "<group>";
 		};
 		DEDFF2B41ACDF8570091A7B5 /* Networking */ = {
@@ -309,10 +313,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEDFF2B71ACE006E0091A7B5 /* User.m in Sources */,
+				DEE7AF341ACEFB3D00C00C84 /* AuthenticateViewController.m in Sources */,
+				DEDFF2B71ACE006E0091A7B5 /* InstagramUser.m in Sources */,
 				DEC469AA1ACC78FA002F7594 /* ViewController.m in Sources */,
 				DEDFF2B31ACDF8450091A7B5 /* IRNetworkManager.m in Sources */,
 				DEC469A71ACC78FA002F7594 /* AppDelegate.m in Sources */,
+				DEE7AF381ACF096B00C00C84 /* DataManager.m in Sources */,
 				DEC469A41ACC78FA002F7594 /* main.m in Sources */,
 				DEDFF2BA1ACE10720091A7B5 /* Util.m in Sources */,
 			);

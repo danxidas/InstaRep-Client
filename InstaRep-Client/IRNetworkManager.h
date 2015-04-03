@@ -8,20 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit.h>
+#import "Defines.h"
 
 @interface IRNetworkManager : NSObject{
-    NSString *serviceUrl;
-    NSString *authenticateUrl;
+
 }
 
-
-@property(strong, nonatomic) NSString *serviceUrl;
-@property(strong, nonatomic) NSString *authenticateUrl;
-
-
 +(id) sharedManager;
--(void) authenticateUserWith:(NSString*)user andPassword:(NSString*)pass;
-
+-(void) postUserToken:(NSString*)token;
 
 
 

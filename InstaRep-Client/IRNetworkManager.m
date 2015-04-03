@@ -11,13 +11,6 @@
 
 @implementation IRNetworkManager
 
-static NSString * serviceUrl = @"http://localhost:8080/InstaRep/rep/";
-static NSString * authenticateUrl = @"authenticate/%@/%@";
-
-
-@synthesize serviceUrl, authenticateUrl;
-
-
 
 // IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
 +(id) sharedManager{
@@ -31,25 +24,20 @@ static NSString * authenticateUrl = @"authenticate/%@/%@";
     return sharedMyManager;
 }
 
--(void) authenticateUserWith:(NSString*)user andPassword:(NSString*)pass{
+-(void) postUserToken:(NSString *)token{
+    NSString *searchPath = [NSString stringWithFormat:@"/instarep/authenticate/%@", token];
     
-    NSString * username = user;
-    NSString * password = pass;
-    
-    NSString *authenticate= [NSString stringWithFormat:@"authenticate/%@/%@", username, password];
-   
-    NSString *path = [NSString stringWithFormat:@"%@%@", serviceUrl, authenticate];
-    
-    [[RKObjectManager sharedManager] getObjectsAtPath:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        NSLog(@"authenticated buddy");
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"sorry buddy");
-    }];
-    
-    
-
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:searchPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
 }
-
 
 
 @end
