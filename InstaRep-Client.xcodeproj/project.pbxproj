@@ -11,7 +11,6 @@
 		DEC469A41ACC78FA002F7594 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC469A31ACC78FA002F7594 /* main.m */; };
 		DEC469A71ACC78FA002F7594 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC469A61ACC78FA002F7594 /* AppDelegate.m */; };
 		DEC469AA1ACC78FA002F7594 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC469A91ACC78FA002F7594 /* ViewController.m */; };
-		DEC469AD1ACC78FA002F7594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC469AB1ACC78FA002F7594 /* Main.storyboard */; };
 		DEC469AF1ACC78FA002F7594 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEC469AE1ACC78FA002F7594 /* Images.xcassets */; };
 		DEC469B21ACC78FA002F7594 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC469B01ACC78FA002F7594 /* LaunchScreen.xib */; };
 		DEC469BE1ACC78FA002F7594 /* InstaRep_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC469BD1ACC78FA002F7594 /* InstaRep_ClientTests.m */; };
@@ -20,6 +19,10 @@
 		DEDFF2BA1ACE10720091A7B5 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDFF2B91ACE10720091A7B5 /* Util.m */; };
 		DEE7AF341ACEFB3D00C00C84 /* AuthenticateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */; };
 		DEE7AF381ACF096B00C00C84 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF371ACF096B00C00C84 /* DataManager.m */; };
+		DEE7AF3B1ACF3ADD00C00C84 /* UserPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF3A1ACF3ADD00C00C84 /* UserPreferencesViewController.m */; };
+		DEE7AF431AD0577D00C00C84 /* UserPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF421AD0577D00C00C84 /* UserPreferences.m */; };
+		DEE7AF461AD0619D00C00C84 /* UserStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF451AD0619D00C00C84 /* UserStatisticsViewController.m */; };
+		DEE7AF491AD0682400C00C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE7AF471AD0682400C00C84 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,6 @@
 		DEC469A61ACC78FA002F7594 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DEC469A81ACC78FA002F7594 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DEC469A91ACC78FA002F7594 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DEC469AC1ACC78FA002F7594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEC469AE1ACC78FA002F7594 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DEC469B11ACC78FA002F7594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DEC469B71ACC78FA002F7594 /* InstaRep-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InstaRep-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,13 @@
 		DEE7AF351ACF005F00C00C84 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		DEE7AF361ACF096B00C00C84 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		DEE7AF371ACF096B00C00C84 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		DEE7AF391ACF3ADD00C00C84 /* UserPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPreferencesViewController.h; sourceTree = "<group>"; };
+		DEE7AF3A1ACF3ADD00C00C84 /* UserPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPreferencesViewController.m; sourceTree = "<group>"; };
+		DEE7AF411AD0577D00C00C84 /* UserPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPreferences.h; sourceTree = "<group>"; };
+		DEE7AF421AD0577D00C00C84 /* UserPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPreferences.m; sourceTree = "<group>"; };
+		DEE7AF441AD0619D00C00C84 /* UserStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatisticsViewController.h; sourceTree = "<group>"; };
+		DEE7AF451AD0619D00C00C84 /* UserStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStatisticsViewController.m; sourceTree = "<group>"; };
+		DEE7AF481AD0682400C00C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,24 +130,15 @@
 		DEC469A01ACC78FA002F7594 /* InstaRep-Client */ = {
 			isa = PBXGroup;
 			children = (
-				DEDFF2B51ACE006E0091A7B5 /* InstagramUser.h */,
-				DEDFF2B61ACE006E0091A7B5 /* InstagramUser.m */,
-				DEDFF2B81ACE10720091A7B5 /* Util.h */,
-				DEDFF2B91ACE10720091A7B5 /* Util.m */,
-				DEE7AF351ACF005F00C00C84 /* Defines.h */,
-				DEE7AF321ACEFB3D00C00C84 /* AuthenticateViewController.h */,
-				DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */,
+				DEE7AF471AD0682400C00C84 /* Main.storyboard */,
+				DEE7AF401ACF44A500C00C84 /* Util */,
+				DEE7AF3F1ACF447F00C00C84 /* DataManager */,
+				DEE7AF3E1ACF446800C00C84 /* AppDelegates */,
+				DEE7AF3C1ACF442F00C00C84 /* ViewControllers */,
 				DEDFF2B41ACDF8570091A7B5 /* Networking */,
-				DEC469A51ACC78FA002F7594 /* AppDelegate.h */,
-				DEC469A61ACC78FA002F7594 /* AppDelegate.m */,
-				DEC469A81ACC78FA002F7594 /* ViewController.h */,
-				DEC469A91ACC78FA002F7594 /* ViewController.m */,
-				DEC469AB1ACC78FA002F7594 /* Main.storyboard */,
 				DEC469AE1ACC78FA002F7594 /* Images.xcassets */,
 				DEC469B01ACC78FA002F7594 /* LaunchScreen.xib */,
 				DEC469A11ACC78FA002F7594 /* Supporting Files */,
-				DEE7AF361ACF096B00C00C84 /* DataManager.h */,
-				DEE7AF371ACF096B00C00C84 /* DataManager.m */,
 			);
 			path = "InstaRep-Client";
 			sourceTree = "<group>";
@@ -176,6 +176,61 @@
 				DEDFF2B21ACDF8450091A7B5 /* IRNetworkManager.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		DEE7AF3C1ACF442F00C00C84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DEC469A81ACC78FA002F7594 /* ViewController.h */,
+				DEC469A91ACC78FA002F7594 /* ViewController.m */,
+				DEE7AF391ACF3ADD00C00C84 /* UserPreferencesViewController.h */,
+				DEE7AF3A1ACF3ADD00C00C84 /* UserPreferencesViewController.m */,
+				DEE7AF321ACEFB3D00C00C84 /* AuthenticateViewController.h */,
+				DEE7AF331ACEFB3D00C00C84 /* AuthenticateViewController.m */,
+				DEE7AF441AD0619D00C00C84 /* UserStatisticsViewController.h */,
+				DEE7AF451AD0619D00C00C84 /* UserStatisticsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DEE7AF3D1ACF444900C00C84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEDFF2B51ACE006E0091A7B5 /* InstagramUser.h */,
+				DEDFF2B61ACE006E0091A7B5 /* InstagramUser.m */,
+				DEE7AF411AD0577D00C00C84 /* UserPreferences.h */,
+				DEE7AF421AD0577D00C00C84 /* UserPreferences.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DEE7AF3E1ACF446800C00C84 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				DEE7AF351ACF005F00C00C84 /* Defines.h */,
+				DEC469A51ACC78FA002F7594 /* AppDelegate.h */,
+				DEC469A61ACC78FA002F7594 /* AppDelegate.m */,
+			);
+			name = AppDelegates;
+			sourceTree = "<group>";
+		};
+		DEE7AF3F1ACF447F00C00C84 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				DEE7AF3D1ACF444900C00C84 /* Model */,
+				DEE7AF361ACF096B00C00C84 /* DataManager.h */,
+				DEE7AF371ACF096B00C00C84 /* DataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		DEE7AF401ACF44A500C00C84 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DEDFF2B81ACE10720091A7B5 /* Util.h */,
+				DEDFF2B91ACE10720091A7B5 /* Util.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEC469AD1ACC78FA002F7594 /* Main.storyboard in Resources */,
+				DEE7AF491AD0682400C00C84 /* Main.storyboard in Resources */,
 				DEC469B21ACC78FA002F7594 /* LaunchScreen.xib in Resources */,
 				DEC469AF1ACC78FA002F7594 /* Images.xcassets in Resources */,
 			);
@@ -316,11 +371,14 @@
 				DEE7AF341ACEFB3D00C00C84 /* AuthenticateViewController.m in Sources */,
 				DEDFF2B71ACE006E0091A7B5 /* InstagramUser.m in Sources */,
 				DEC469AA1ACC78FA002F7594 /* ViewController.m in Sources */,
+				DEE7AF431AD0577D00C00C84 /* UserPreferences.m in Sources */,
 				DEDFF2B31ACDF8450091A7B5 /* IRNetworkManager.m in Sources */,
 				DEC469A71ACC78FA002F7594 /* AppDelegate.m in Sources */,
 				DEE7AF381ACF096B00C00C84 /* DataManager.m in Sources */,
 				DEC469A41ACC78FA002F7594 /* main.m in Sources */,
+				DEE7AF461AD0619D00C00C84 /* UserStatisticsViewController.m in Sources */,
 				DEDFF2BA1ACE10720091A7B5 /* Util.m in Sources */,
+				DEE7AF3B1ACF3ADD00C00C84 /* UserPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,20 +401,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DEC469AB1ACC78FA002F7594 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DEC469AC1ACC78FA002F7594 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DEC469B01ACC78FA002F7594 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DEC469B11ACC78FA002F7594 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		DEE7AF471AD0682400C00C84 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEE7AF481AD0682400C00C84 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

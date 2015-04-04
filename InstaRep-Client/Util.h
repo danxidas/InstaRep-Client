@@ -14,4 +14,5 @@
 +(void) showAlertWithTitle: (NSString*) title andText: (NSString*) text andDelegate: (id)del;
 +(id) checkNull:(id)object;
 +(BOOL) checkNetworkConnection;
+
 @end

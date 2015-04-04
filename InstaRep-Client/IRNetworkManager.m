@@ -7,6 +7,7 @@
 //
 
 #import "IRNetworkManager.h"
+#import "UserPreferences.h"
 #import <RestKit.h>
 
 @implementation IRNetworkManager
@@ -25,9 +26,9 @@
 }
 
 -(void) postUserToken:(NSString *)token{
-    NSString *searchPath = [NSString stringWithFormat:@"/instarep/authenticate/%@", token];
+    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, token];
     
-    [[[RKObjectManager sharedManager] HTTPClient] getPath:searchPath
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:authenticatePath
                                                parameters:nil
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                       NSLog(@"GREAT SUCCESS");
@@ -37,6 +38,26 @@
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
                                                   }];
+}
+
+-(void) postUserPrefs:(UserPreferences*) prefs{
+    
+    NSString *userPrefsPath = [NSString stringWithFormat:kUserPreferencesURL,
+                               [prefs allowFollows], [prefs allowComments], [prefs allowLikes],
+                               [prefs targetAudience], (int)[prefs botTime]];
+    
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:userPrefsPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
+    
+
 }
 
 

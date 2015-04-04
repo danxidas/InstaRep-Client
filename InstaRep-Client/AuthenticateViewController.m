@@ -8,6 +8,7 @@
 
 #import "AuthenticateViewController.h"
 #import "IRNetworkManager.h"
+#import "UserPreferencesViewController.h"
 @interface AuthenticateViewController ()
 
 @end
@@ -64,13 +65,12 @@
             if ([token length] > 0 )
             {
                 // send the token to the server to make api calls
-                NSLog(@"TOKEN%@", token);
-                
                 IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
                 
                 [sharedManager postUserToken:token];
-                
             }
+            
+            [self moveToUserPreferencesViewController];
         }
         else
         {
@@ -107,6 +107,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) moveToUserPreferencesViewController{
+    
+    UIStoryboard * storyboards = self.storyboard;
+    NSString * storyboardName = [storyboards valueForKey:@"name"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    UserPreferencesViewController *viewController = (UserPreferencesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"UserPeferences"];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 /*

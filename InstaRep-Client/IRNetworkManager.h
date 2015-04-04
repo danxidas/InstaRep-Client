@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <RestKit.h>
 #import "Defines.h"
+#import "UserPreferences.h"
 
 @interface IRNetworkManager : NSObject{
 
@@ -16,6 +17,7 @@
 
 +(id) sharedManager;
 -(void) postUserToken:(NSString*)token;
+-(void) postUserPrefs:(UserPreferences*)prefs;
 
 
 
