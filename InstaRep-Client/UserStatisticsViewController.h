@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "InstagramUser.h"
+#import "DataManager.h"
+#import "IRNetworkManager.h"
 
 @interface UserStatisticsViewController : UIViewController <UINavigationBarDelegate>{
 
@@ -27,6 +29,8 @@
  
     
     InstagramUser * instagramUser;
+    DataManager * dataManager;
+    IRNetworkManager * networkManager;
 }
 
 @end

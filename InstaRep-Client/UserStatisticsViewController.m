@@ -9,22 +9,22 @@
 #import "UserStatisticsViewController.h"
 #import "DataManager.h"
 #import "AuthenticateViewController.h"
+#import "IRNetworkManager.h"
 
 @implementation UserStatisticsViewController
 
 
 -(void) viewDidLoad{
     [super viewDidLoad];
-    DataManager * dataManager = [DataManager sharedObject];
-    
+    dataManager = [DataManager sharedObject];
+    networkManager = [IRNetworkManager sharedManager];
     instagramUser = dataManager.instagramUserAccountObject;
-    
     navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
-
     [self positionForBar:navBar];
     [self circularImage:profilePicture widthOrHeightOfImageView:profilePicture.frame.size.width];
-    
     [self updateText];
+    // start the bot
+    [networkManager startBot];
 }
 
 
@@ -40,8 +40,17 @@
 }
 
 - (IBAction)refresh:(id)sender {
+    [dataManager getUserInstagram];
     
+    instagramUser = dataManager.instagramUserAccountObject;
+
+    [self updateText];
 }
+
+- (IBAction)stopBot:(id)sender {
+    [networkManager stopBot];
+}
+
 
 -(void) moveToAuthenticationViewController{
     UIStoryboard * storyboards = self.storyboard;

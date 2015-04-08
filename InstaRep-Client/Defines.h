@@ -15,6 +15,8 @@
 #define kAuthenticateURL        @"authenticate/%@"
 #define kUserPreferencesURL     @"userprefs/%d/%d/%d/%d/%d"
 #define kUserInfoURL            @"instagramuser"
+#define kStartBotURL            @"startbot"
+#define kStopBotURL             @"stopbot"
 
 
 
