@@ -88,7 +88,7 @@
         [prefs setBotTime:(int) timeSlider.value];
     
         IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
-        [sharedManager postUserPrefs:prefs];
+        [sharedManager getUserPrefs:prefs];
     
         [self moveToUserUserStatsViewController];
     }

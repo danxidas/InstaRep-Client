@@ -38,9 +38,9 @@ static DataManager* gDataMgr = nil;
     return instagramUser;
 }
 
--(void) getUserInstagramWithAccessToken:(NSString *)accessToken{
+-(void) getUserInstagram{
     
-    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL,accessToken];
+    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL];
     [[[RKObjectManager sharedManager] HTTPClient] getPath:getUserInstragramPath
                                                parameters:nil
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {

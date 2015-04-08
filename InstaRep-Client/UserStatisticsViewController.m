@@ -39,6 +39,9 @@
     [self moveToAuthenticationViewController];
 }
 
+- (IBAction)refresh:(id)sender {
+    
+}
 
 -(void) moveToAuthenticationViewController{
     UIStoryboard * storyboards = self.storyboard;

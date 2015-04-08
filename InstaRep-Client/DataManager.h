@@ -17,6 +17,6 @@
 + (DataManager*) sharedObject;
 - (InstagramUser*) instagramUserAccountObject;
 
-- (void) getUserInstagramWithAccessToken:(NSString*)accessToken;
+- (void) getUserInstagram;
 
 @end

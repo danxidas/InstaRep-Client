@@ -330,6 +330,18 @@
                                 <color key="textColor" red="0.41151588397790051" green="0.41151588397790051" blue="0.41151588397790051" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yhQ-ak-0kJ">
+                                <rect key="frame" x="106" y="503" width="108" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.553480084333135" green="0.72900017750622914" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="REFRESH">
+                                    <color key="titleColor" red="0.83965683662737334" green="0.95483135039370248" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh:" destination="kMD-Yw-P6M" eventType="touchUpInside" id="vAl-PU-NqS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85370815221850127" green="0.9663112914364641" blue="0.75219723028580687" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

@@ -10,6 +10,7 @@
 #import "UserPreferences.h"
 #import "InstagramUser.h"
 #import "CountsUser.h"
+#import "DataManager.h"
 #import <RestKit.h>
 
 @implementation IRNetworkManager
@@ -27,8 +28,8 @@
     return sharedMyManager;
 }
 
--(void) postUserToken:(NSString *)token{
-    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, token];
+-(void) getUserCode:(NSString *)code{
+    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, code];
     
     [[[RKObjectManager sharedManager] HTTPClient] getPath:authenticatePath
                                                parameters:nil
@@ -40,9 +41,12 @@
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
                                                   }];
+    
+    DataManager *sharedDataManager = [DataManager sharedObject];
+    [sharedDataManager getUserInstagram];
 }
 
--(void) postUserPrefs:(UserPreferences*) prefs{
+-(void) getUserPrefs:(UserPreferences*) prefs{
     
     NSString *userPrefsPath = [NSString stringWithFormat:kUserPreferencesURL,
                                [prefs allowFollows], [prefs allowComments], [prefs allowLikes],
@@ -63,9 +67,9 @@
 
 }
 
--(void) getUserInstagramWithAccess:(NSString*) token{
+-(void) getUserInstagram{
     
-    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL,token];
+    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL];
     [[[RKObjectManager sharedManager] HTTPClient] getPath:getUserInstragramPath
                                                parameters:nil
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
