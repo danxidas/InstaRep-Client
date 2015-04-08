@@ -23,7 +23,6 @@
 		DEE7AF431AD0577D00C00C84 /* UserPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF421AD0577D00C00C84 /* UserPreferences.m */; };
 		DEE7AF461AD0619D00C00C84 /* UserStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF451AD0619D00C00C84 /* UserStatisticsViewController.m */; };
 		DEE7AF491AD0682400C00C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE7AF471AD0682400C00C84 /* Main.storyboard */; };
-		DEE7AF4B1AD0851300C00C84 /* instarep-defaultpic.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE7AF4A1AD0851300C00C84 /* instarep-defaultpic.png */; };
 		DEE7AF4E1AD0C1E200C00C84 /* CountsUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE7AF4D1AD0C1E200C00C84 /* CountsUser.m */; };
 /* End PBXBuildFile section */
 
@@ -325,7 +324,6 @@
 			files = (
 				DEE7AF491AD0682400C00C84 /* Main.storyboard in Resources */,
 				DEC469B21ACC78FA002F7594 /* LaunchScreen.xib in Resources */,
-				DEE7AF4B1AD0851300C00C84 /* instarep-defaultpic.png in Resources */,
 				DEC469AF1ACC78FA002F7594 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
