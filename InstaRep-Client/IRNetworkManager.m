@@ -40,10 +40,9 @@
                                                       // response code is in operation.response.statusCode
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
+                                                      [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
                                                   }];
     
-    DataManager *sharedDataManager = [DataManager sharedObject];
-    [sharedDataManager getUserInstagram];
 }
 
 -(void) getUserPrefs:(UserPreferences*) prefs{
@@ -62,6 +61,7 @@
                                                       // response code is in operation.response.statusCode
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
+                                                        [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
                                                   }];
     
 
@@ -84,6 +84,7 @@
                                                       // response code is in operation.response.statusCode
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
+                                                        [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
                                                   }];
 }
 
@@ -99,6 +100,7 @@
                                                       // response code is in operation.response.statusCode
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
+                                                        [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
                                                   }];
 }
 
@@ -113,6 +115,7 @@
                                                       // response code is in operation.response.statusCode
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
+                                                        [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
                                                   }];
 
 

@@ -16,9 +16,17 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    
+    
     dataManager = [DataManager sharedObject];
     networkManager = [IRNetworkManager sharedManager];
+    
+  
+    [dataManager getUserInstagram];
+
+    
     instagramUser = dataManager.instagramUserAccountObject;
+    NSLog(@"%@", instagramUser.userName);
     navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
     [self positionForBar:navBar];
     [self circularImage:profilePicture widthOrHeightOfImageView:profilePicture.frame.size.width];
@@ -67,6 +75,8 @@
         bioText.text = [instagramUser bio];
         userFollowersText.text = [NSString stringWithFormat:@"%d", [instagramUser followedBy]];
         userFollowingText.text = [NSString stringWithFormat:@"%d", [instagramUser following]];
+        navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
+
     });
 }
 

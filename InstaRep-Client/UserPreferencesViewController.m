@@ -29,7 +29,9 @@
     timeSlider.maximumValue = 8;
     
     [self initSwitches];
-}
+    
+    
+   }
 
 
 
