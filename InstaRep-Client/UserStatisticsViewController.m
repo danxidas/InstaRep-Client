@@ -7,20 +7,69 @@
 //
 
 #import "UserStatisticsViewController.h"
+#import "DataManager.h"
+#import "AuthenticateViewController.h"
 
 @implementation UserStatisticsViewController
 
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    DataManager * dataManager = [DataManager sharedObject];
     
-    navBar.topItem.title = @"vegan_lover27's stats";
+    instagramUser = dataManager.instagramUserAccountObject;
+    
+    navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
+
     [self positionForBar:navBar];
+    [self circularImage:profilePicture widthOrHeightOfImageView:profilePicture.frame.size.width];
+    
+    [self updateText];
+}
+
+
+
+- (IBAction)logout:(id)sender {
+    NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray* instagramCookies = [cookies cookiesForURL:[NSURL URLWithString:kBaseURL]];
+    for (NSHTTPCookie* cookie in instagramCookies){
+        [cookies deleteCookie:cookie];
+    }
+    
+    [self moveToAuthenticationViewController];
+}
+
+
+-(void) moveToAuthenticationViewController{
+    UIStoryboard * storyboards = self.storyboard;
+    NSString * storyboardName = [storyboards valueForKey:@"name"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    AuthenticateViewController *viewController = (AuthenticateViewController *)[storyboard instantiateViewControllerWithIdentifier:@"authentication"];
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+-(void) updateText{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        fullNameText.text = [instagramUser fullName];
+        bioText.text = [instagramUser bio];
+        userFollowersText.text = [NSString stringWithFormat:@"%d", [instagramUser followedBy]];
+        userFollowingText.text = [NSString stringWithFormat:@"%d", [instagramUser following]];
+    });
 }
 
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar
 {
     return UIBarPositionTopAttached;
+}
+
+- (void)circularImage:(UIImageView *)image
+widthOrHeightOfImageView:(NSInteger) widthOrHeight
+{
+    image.layer.borderWidth = 1.0f;
+    image.layer.masksToBounds = NO;
+    image.clipsToBounds = YES;
+    image.layer.cornerRadius =  widthOrHeight/2;
 }
 @end

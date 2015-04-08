@@ -14,6 +14,7 @@
 #define kBaseWebServiceURL      @"http://localhost:8080/instarep/"
 #define kAuthenticateURL        @"authenticate/%@"
 #define kUserPreferencesURL     @"userprefs/%d/%d/%d/%d/%d"
+#define kUserInfoURL            @"instagramuser/%@"
 
 
 

@@ -9,6 +9,7 @@
 #import "AuthenticateViewController.h"
 #import "IRNetworkManager.h"
 #import "UserPreferencesViewController.h"
+#import "DataManager.h"
 @interface AuthenticateViewController ()
 
 @end
@@ -64,10 +65,11 @@
             
             if ([token length] > 0 )
             {
-                // send the token to the server to make api calls
+                // Send the token to the server to make api calls
                 IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
-                
                 [sharedManager postUserToken:token];
+                DataManager *sharedDataManager = [DataManager sharedObject];
+                [sharedDataManager getUserInstagramWithAccessToken:token];
             }
             
             [self moveToUserPreferencesViewController];

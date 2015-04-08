@@ -8,6 +8,8 @@
 
 #import "IRNetworkManager.h"
 #import "UserPreferences.h"
+#import "InstagramUser.h"
+#import "CountsUser.h"
 #import <RestKit.h>
 
 @implementation IRNetworkManager
@@ -50,6 +52,7 @@
                                                parameters:nil
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                       NSLog(@"GREAT SUCCESS");
+                                                      
                                                   }
                                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                       // response code is in operation.response.statusCode
@@ -58,6 +61,50 @@
                                                   }];
     
 
+}
+
+-(void) getUserInstagramWithAccess:(NSString*) token{
+    
+    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL,token];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:getUserInstragramPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"%@", [IRNetworkManager JSONData:responseObject]);
+                                                      
+                                                    NSDictionary* dict = [IRNetworkManager JSONData:responseObject];
+                                                    InstagramUser* userInfo = [[InstagramUser alloc] initWithDictionary:dict];
+                                                    NSLog(@"%@, %d %d %d", userInfo.userName, userInfo.following, userInfo.followedBy, userInfo.posts);
+                                                      
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
+}
+
+
+
+-(long) getElaspedTime{
+
+    
+    return 0.0;
+}
+
+
++ (id) JSONData: (NSData*)data;
+{
+    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+   
+    // str = [str stringByReplacingOccurrencesOfString:@"NaN" withString:@"0.0"];
+    
+    NSError* error = nil;
+    id response = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    if (error)
+    {
+        // DLog(@"%@", [error description]);
+    }
+    return response;
 }
 
 
