@@ -22,6 +22,8 @@
 -(void) getUserPrefs:(UserPreferences*)prefs;
 -(void) getUserInstagram;
 -(long) getElaspedTime;
+-(void) stopBot;
+-(void) startBot;
 
 
 

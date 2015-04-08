@@ -88,6 +88,37 @@
 }
 
 
+-(void) startBot{
+    NSString *startBotPath = [NSString stringWithFormat:kStartBotURL];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:startBotPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
+}
+
+-(void) stopBot{
+    NSString *stopBotPath = [NSString stringWithFormat:kStopBotURL];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:stopBotPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
+
+
+}
+
+
 
 -(long) getElaspedTime{
 
