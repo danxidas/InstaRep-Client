@@ -14,6 +14,7 @@
 #define kBaseWebServiceURL      @"http://localhost:8080/instarep/"
 #define kAuthenticateURL        @"authenticate/%@"
 #define kUserPreferencesURL     @"userprefs/%d/%d/%d/%d/%d"
+#define kUserInfoURL            @"instagramuser"
 
 
 
@@ -21,9 +22,10 @@
 #define kClientSecret           @"ad9f019ec99a4e6a8cfd0983e75c8418"
 #define kBaseURL                @"https://instagram.com/"
 #define kInstagramAPIBaseURL    @"https://api.instagram.com/"
-#define kAuthenticationURL      @"oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=likes+comments+relationships"
+#define kAuthenticationURL      @"oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&scope=likes+comments+relationships"
 #define kRedirectURI            @"http://localhost:8080/instarep/"
 #define kAccessToken            @"access_token="
+#define kCode                   @"code="
 
 
 #endif

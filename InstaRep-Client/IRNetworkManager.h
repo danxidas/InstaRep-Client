@@ -16,8 +16,13 @@
 }
 
 +(id) sharedManager;
--(void) postUserToken:(NSString*)token;
--(void) postUserPrefs:(UserPreferences*)prefs;
++(id) JSONData: (NSData*)data;
+
+-(void) getUserCode:(NSString*)code;
+-(void) getUserPrefs:(UserPreferences*)prefs;
+-(void) getUserInstagram;
+-(long) getElaspedTime;
+
 
 
 

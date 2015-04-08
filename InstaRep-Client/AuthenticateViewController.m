@@ -9,6 +9,7 @@
 #import "AuthenticateViewController.h"
 #import "IRNetworkManager.h"
 #import "UserPreferencesViewController.h"
+#import "DataManager.h"
 @interface AuthenticateViewController ()
 
 @end
@@ -51,23 +52,23 @@
     // Loops until a user logs in with Instagram, and parses the token
     if ([urlParts count] == 2)
     {
-        NSRange tokenParam = [urlString rangeOfString: kAccessToken];
-        if (tokenParam.location != NSNotFound)
+        NSRange codeParam = [urlString rangeOfString: kCode];
+        if (codeParam.location != NSNotFound)
         {
-            NSString* token = [urlString substringFromIndex: NSMaxRange(tokenParam)];
+            NSString* code = [urlString substringFromIndex: NSMaxRange(codeParam)];
           
             // If there are more args, don't include them in the token:
-            NSRange endRange = [token rangeOfString: @"&"];
+            NSRange endRange = [code rangeOfString: @"&"];
             
             if (endRange.location != NSNotFound)
-                token = [token substringToIndex: endRange.location];
+                code = [code substringToIndex: endRange.location];
             
-            if ([token length] > 0 )
+            if ([code length] > 0 )
             {
-                // send the token to the server to make api calls
+                // Send the token to the server to make api calls
                 IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
+                [sharedManager getUserCode:code];
                 
-                [sharedManager postUserToken:token];
             }
             
             [self moveToUserPreferencesViewController];

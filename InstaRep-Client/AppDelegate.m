@@ -32,10 +32,21 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    
+    
+    // we tell the os that we still have things to do (i.e. keep updating the stats of a user in the background..)
+    
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    // update the user
+    
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -58,22 +69,34 @@
     
     // initialize RestKit
     RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    // setup object mapping
+    
+//    // setup object mapping
+//    RKObjectMapping *countsMapping = [RKObjectMapping mappingForClass:[CountsUser class]];
+//    [countsMapping addAttributeMappingsFromDictionary:@{ @"media" : @"posts",
+//                                                         @"followed_by" : @"followedBy",
+//                                                         @"follows" : @"following"}];
+    
+    
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[InstagramUser class]];
+    [userMapping addAttributeMappingsFromDictionary:@{@"username" : @"userName",
+                                                      @"bio" : @"bio",
+                                                      @"profile_picture" : @"profilePicture",
+                                                      @"full_name" : @"fullName",
+                                                      @"media" : @"posts",
+                                                      @"followed_by" : @"followedBy",
+                                                      @"follows" : @"following"}];
+     
     
-    
-    [userMapping addAttributeMappingsFromDictionary:@{@"username.text" : @"username",
-                                                          @"profilePicture.text" : @"profilepicture",
-                                                          @"full_name.text" : @"name",
-                                                          @"userid.text" : @"text"}];
-    
+//    [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"counts"
+//                                                                                toKeyPath:@"counts"
+//                                                                              withMapping:countsMapping]];
     
     // register mappings with the provider using a response descriptor
     RKResponseDescriptor *responseDescriptor =
     [RKResponseDescriptor responseDescriptorWithMapping:userMapping
-                                                 method:RKRequestMethodGET
+                                                 method:RKRequestMethodAny
                                             pathPattern:nil
-                                                keyPath:@""
+                                                keyPath:nil
                                             statusCodes:[NSIndexSet indexSetWithIndex:200]];
     
     

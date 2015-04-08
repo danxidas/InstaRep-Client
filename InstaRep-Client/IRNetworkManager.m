@@ -8,6 +8,9 @@
 
 #import "IRNetworkManager.h"
 #import "UserPreferences.h"
+#import "InstagramUser.h"
+#import "CountsUser.h"
+#import "DataManager.h"
 #import <RestKit.h>
 
 @implementation IRNetworkManager
@@ -25,8 +28,8 @@
     return sharedMyManager;
 }
 
--(void) postUserToken:(NSString *)token{
-    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, token];
+-(void) getUserCode:(NSString *)code{
+    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, code];
     
     [[[RKObjectManager sharedManager] HTTPClient] getPath:authenticatePath
                                                parameters:nil
@@ -38,9 +41,12 @@
                                                       NSLog(@"FAILURE:");
                                                       NSLog(@"%ld", (long)operation.response.statusCode);
                                                   }];
+    
+    DataManager *sharedDataManager = [DataManager sharedObject];
+    [sharedDataManager getUserInstagram];
 }
 
--(void) postUserPrefs:(UserPreferences*) prefs{
+-(void) getUserPrefs:(UserPreferences*) prefs{
     
     NSString *userPrefsPath = [NSString stringWithFormat:kUserPreferencesURL,
                                [prefs allowFollows], [prefs allowComments], [prefs allowLikes],
@@ -50,6 +56,7 @@
                                                parameters:nil
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                       NSLog(@"GREAT SUCCESS");
+                                                      
                                                   }
                                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                       // response code is in operation.response.statusCode
@@ -58,6 +65,50 @@
                                                   }];
     
 
+}
+
+-(void) getUserInstagram{
+    
+    NSString *getUserInstragramPath = [NSString stringWithFormat:kUserInfoURL];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:getUserInstragramPath
+                                               parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"%@", [IRNetworkManager JSONData:responseObject]);
+                                                      
+                                                    NSDictionary* dict = [IRNetworkManager JSONData:responseObject];
+                                                    InstagramUser* userInfo = [[InstagramUser alloc] initWithDictionary:dict];
+                                                    NSLog(@"%@, %d %d %d", userInfo.userName, userInfo.following, userInfo.followedBy, userInfo.posts);
+                                                      
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                  }];
+}
+
+
+
+-(long) getElaspedTime{
+
+    
+    return 0.0;
+}
+
+
++ (id) JSONData: (NSData*)data;
+{
+    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+   
+    // str = [str stringByReplacingOccurrencesOfString:@"NaN" withString:@"0.0"];
+    
+    NSError* error = nil;
+    id response = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    if (error)
+    {
+        // DLog(@"%@", [error description]);
+    }
+    return response;
 }
 
 

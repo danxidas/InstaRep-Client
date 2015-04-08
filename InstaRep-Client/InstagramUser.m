@@ -16,13 +16,12 @@
     {
         self.userName = [Util checkNull:[dict objectForKey:@"username"]];
         self.profilePicture = [Util checkNull:[dict objectForKey:@"profile_picture"]];
-        self.fullName = [Util checkNull:[dict objectForKey:@"full_name"]];
+        self.fullName = [Util checkNull:[dict objectForKey:@"fullName"]];
         self.bio = [Util checkNull:[dict objectForKey:@"bio"]];
-        
         self.userId = [[Util checkNull:[dict objectForKey:@"id"]] intValue];
-        
-        NSDictionary* countList = [Util checkNull:[dict objectForKey:@"counts"]];
-        self.followedBy = [[Util checkNull:[countList objectForKey:@"followed_by"]] intValue];
+        self.followedBy = [[Util checkNull:[dict objectForKey:@"followedBy"]] intValue];
+        self.following = [[Util checkNull:[dict objectForKey:@"followers"]] intValue];
+        self.posts = [[Util checkNull:[dict objectForKey:@"posts"]] intValue];
     }
     return self;
 }
