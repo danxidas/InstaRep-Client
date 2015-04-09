@@ -288,32 +288,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjF-fc-4M9">
-                                <rect key="frame" x="100" y="321" width="120" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elasped time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjF-fc-4M9">
+                                <rect key="frame" x="100" y="321" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:47:09" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ziV-eR-jrS">
-                                <rect key="frame" x="127" y="350" width="67" height="21"/>
+                                <rect key="frame" x="106" y="350" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wwe-TA-bx3">
-                                <rect key="frame" x="22" y="443" width="108" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.74117647058823533" green="0.25099879333922226" blue="0.38764365857318844" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="STOP BOT">
-                                    <color key="titleColor" red="0.95404530388019892" green="1" blue="0.96234280347853163" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopBot:" destination="kMD-Yw-P6M" eventType="touchUpInside" id="Pqk-y2-3LN"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bj-Sc-0oK">
                                 <rect key="frame" x="185" y="443" width="108" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -334,7 +322,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yhQ-ak-0kJ">
-                                <rect key="frame" x="106" y="503" width="108" height="52"/>
+                                <rect key="frame" x="34" y="443" width="108" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.553480084333135" green="0.72900017750622914" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="REFRESH">
@@ -343,6 +331,18 @@
                                 </state>
                                 <connections>
                                     <action selector="refresh:" destination="kMD-Yw-P6M" eventType="touchUpInside" id="vAl-PU-NqS"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wwe-TA-bx3">
+                                <rect key="frame" x="106" y="503" width="108" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74117647058823533" green="0.25099879333922226" blue="0.38764365857318844" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="START BOT">
+                                    <color key="titleColor" red="0.95404530388019892" green="1" blue="0.96234280347853163" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopBot:" destination="kMD-Yw-P6M" eventType="touchUpInside" id="Pqk-y2-3LN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -356,6 +356,7 @@
                         <outlet property="newFollowersText" destination="gci-Wt-C7C" id="rGB-m9-8E7"/>
                         <outlet property="newLikesText" destination="cfj-p3-9ma" id="2Jp-yk-fka"/>
                         <outlet property="profilePicture" destination="nUb-WB-JBt" id="rxQ-ZQ-SBm"/>
+                        <outlet property="stopBtn" destination="Wwe-TA-bx3" id="BWl-ts-CYE"/>
                         <outlet property="timeRemainingText" destination="ziV-eR-jrS" id="XuI-aJ-tT2"/>
                         <outlet property="userFollowersText" destination="Wgb-lC-MUp" id="dEA-fg-sa1"/>
                         <outlet property="userFollowingText" destination="3Ji-ba-7kp" id="gNv-tJ-eza"/>

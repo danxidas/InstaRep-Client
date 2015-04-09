@@ -18,9 +18,10 @@
 +(id) sharedManager;
 +(id) JSONData: (NSData*)data;
 
--(void) getUserCode:(NSString*)code;
+-(void) getUserToken:(NSString*)token;
 -(void) getUserPrefs:(UserPreferences*)prefs;
 -(void) getUserInstagram;
+-(int)  getLikes;
 -(long) getElaspedTime;
 -(void) stopBot;
 -(void) startBot;

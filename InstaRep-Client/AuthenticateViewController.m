@@ -52,22 +52,22 @@
     // Loops until a user logs in with Instagram, and parses the token
     if ([urlParts count] == 2)
     {
-        NSRange codeParam = [urlString rangeOfString: kCode];
-        if (codeParam.location != NSNotFound)
+        NSRange tokenParam = [urlString rangeOfString: kAccessToken];
+        if (tokenParam.location != NSNotFound)
         {
-            NSString* code = [urlString substringFromIndex: NSMaxRange(codeParam)];
+            NSString* token = [urlString substringFromIndex: NSMaxRange(tokenParam)];
           
             // If there are more args, don't include them in the token:
-            NSRange endRange = [code rangeOfString: @"&"];
+            NSRange endRange = [token rangeOfString: @"&"];
             
             if (endRange.location != NSNotFound)
-                code = [code substringToIndex: endRange.location];
+                token = [token substringToIndex: endRange.location];
             
-            if ([code length] > 0 )
+            if ([token length] > 0 )
             {
                 // Send the token to the server to make api calls
                 IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
-                [sharedManager getUserCode:code];
+                [sharedManager getUserToken:token];
                 
             }
             

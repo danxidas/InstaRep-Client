@@ -13,7 +13,12 @@
 #import "DataManager.h"
 #import <RestKit.h>
 
-@implementation IRNetworkManager
+@implementation IRNetworkManager{
+    long elapsedTime;
+    int no_likes;
+    NSString * s;
+    NSString * likes;
+}
 
 
 // IRNetworkManager *sharedManager = [IRNetworkManager sharedManager];
@@ -28,8 +33,8 @@
     return sharedMyManager;
 }
 
--(void) getUserCode:(NSString *)code{
-    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, code];
+-(void) getUserToken:(NSString*)token{
+    NSString *authenticatePath = [NSString stringWithFormat:kAuthenticateURL, token];
     
     [[[RKObjectManager sharedManager] HTTPClient] getPath:authenticatePath
                                                parameters:nil
@@ -124,16 +129,72 @@
 
 
 -(long) getElaspedTime{
-
     
-    return 0.0;
+    //long elaspedTime = 0.0;
+    
+    
+    NSString *stopBotPath = [NSString stringWithFormat:kRunningTimeURL];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:stopBotPath
+                                               parameters:nil
+     
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                      NSLog(@"%@", responseObject);
+                                                      
+                                                      s = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                                                      
+                                                      NSLog(@"%@", s);
+                                                      elapsedTime  = [s longLongValue];
+                                                      NSLog(@" TIME : %ld", elapsedTime);
+  
+                                                  }
+     
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                      [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
+                                                  }];
+
+   // NSLog(@" TIME : %ld", elapsedTime);
+    return elapsedTime;
+}
+
+-(int) getLikes{
+    
+    NSString *stopBotPath = [NSString stringWithFormat:kLikesURL];
+    [[[RKObjectManager sharedManager] HTTPClient] getPath:stopBotPath
+                                               parameters:nil
+     
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                      NSLog(@"GREAT SUCCESS");
+                                                      NSLog(@"%@", responseObject);
+                                                      
+                                                      likes = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                                                      
+                                                      NSLog(@"%@", likes);
+                                                      no_likes  = [s intValue];
+                                                      NSLog(@" likes : %d", no_likes);
+                                                      
+                                                  }
+     
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      // response code is in operation.response.statusCode
+                                                      NSLog(@"FAILURE:");
+                                                      NSLog(@"%ld", (long)operation.response.statusCode);
+                                                      [Util showAlertWithTitle:@"Error" andText:@"Check your internet connection" andDelegate:self];
+                                                  }];
+    
+    // NSLog(@" TIME : %ld", elapsedTime);
+    return no_likes;
+
 }
 
 
 + (id) JSONData: (NSData*)data;
 {
     NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-   
+    NSLog(@"time: %@", str);
     // str = [str stringByReplacingOccurrencesOfString:@"NaN" withString:@"0.0"];
     
     NSError* error = nil;

@@ -17,6 +17,8 @@
 #define kUserInfoURL            @"instagramuser"
 #define kStartBotURL            @"startbot"
 #define kStopBotURL             @"stopbot"
+#define kRunningTimeURL         @"runningtime"
+#define kLikesURL               @"likes"
 
 
 
@@ -24,7 +26,7 @@
 #define kClientSecret           @"ad9f019ec99a4e6a8cfd0983e75c8418"
 #define kBaseURL                @"https://instagram.com/"
 #define kInstagramAPIBaseURL    @"https://api.instagram.com/"
-#define kAuthenticationURL      @"oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&scope=likes+comments+relationships"
+#define kAuthenticationURL      @"oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=likes+comments+relationships"
 #define kRedirectURI            @"http://localhost:8080/instarep/"
 #define kAccessToken            @"access_token="
 #define kCode                   @"code="

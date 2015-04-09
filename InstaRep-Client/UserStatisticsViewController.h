@@ -22,6 +22,7 @@
     IBOutlet UILabel *userFollowingText;
     
     
+    IBOutlet UIButton *stopBtn;
     IBOutlet UILabel *newFollowersText;
     
     IBOutlet UILabel *newLikesText;

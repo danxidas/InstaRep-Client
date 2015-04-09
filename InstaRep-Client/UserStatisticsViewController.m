@@ -11,7 +11,10 @@
 #import "AuthenticateViewController.h"
 #import "IRNetworkManager.h"
 
-@implementation UserStatisticsViewController
+@implementation UserStatisticsViewController{
+    int newFollowers;
+    int oldFollowers;
+}
 
 
 -(void) viewDidLoad{
@@ -22,10 +25,6 @@
     networkManager = [IRNetworkManager sharedManager];
     
   
-    [dataManager getUserInstagram];
-
-    
-    instagramUser = dataManager.instagramUserAccountObject;
     NSLog(@"%@", instagramUser.userName);
     navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
     [self positionForBar:navBar];
@@ -35,6 +34,11 @@
     [networkManager startBot];
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [dataManager getUserInstagram];
+    instagramUser = dataManager.instagramUserAccountObject;
+    oldFollowers = 10;
+}
 
 
 - (IBAction)logout:(id)sender {
@@ -49,14 +53,20 @@
 
 - (IBAction)refresh:(id)sender {
     [dataManager getUserInstagram];
-    
     instagramUser = dataManager.instagramUserAccountObject;
-
+    newFollowers = instagramUser.followedBy - oldFollowers;
     [self updateText];
 }
 
 - (IBAction)stopBot:(id)sender {
-    [networkManager stopBot];
+    if([stopBtn.currentTitle  isEqual: @"STOP BOT"]){
+        [networkManager stopBot];
+        [stopBtn setTitle:@"START BOT" forState:UIControlStateNormal];
+    }else{
+        
+        [networkManager startBot];
+        [stopBtn setTitle:@"STOP BOT" forState:UIControlStateNormal];
+    }
 }
 
 
@@ -69,13 +79,28 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
+
 -(void) updateText{
+    
+    long millis = [networkManager getElaspedTime];
+    long second = (millis / 1000) % 60;
+    long minute = (millis / (1000 * 60)) % 60;
+    long hour = (millis / (1000 * 60 * 60)) % 24;
+    
+    int likes = [networkManager getLikes];
+    
+    NSString* time = [NSString stringWithFormat:@"%.2ld:%.2ld:%.2ld", hour, minute, second] ;
+   // NSLog(@"%ld", time);
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         fullNameText.text = [instagramUser fullName];
         bioText.text = [instagramUser bio];
         userFollowersText.text = [NSString stringWithFormat:@"%d", [instagramUser followedBy]];
         userFollowingText.text = [NSString stringWithFormat:@"%d", [instagramUser following]];
         navBar.topItem.title = [NSString stringWithFormat:@"%@'s stats",[instagramUser userName]];
+        newFollowersText.text = [NSString stringWithFormat:@"+ %d", newFollowers];
+        timeRemainingText.text = [NSString stringWithFormat:@"%@", time];
+        newLikesText.text = [NSString stringWithFormat:@"%d", likes];
 
     });
 }
